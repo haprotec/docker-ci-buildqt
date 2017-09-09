@@ -1,9 +1,9 @@
 FROM arose/qtrpi:rpi3-qt5.6.2
 
 # Install wget
-RUN apt update && \ apt install -y wget
+RUN apt-get update && \ apt-get install -y \
+    mono-complete
 
 # Install gitsemver
-RUN wget https://downloads.haprotec.de/gitsemver/gitsemver.deb && \    
-    apt install -y ./gitsemver.deb && \
-    rm gitsemver.deb
+ADD https://downloads.haprotec.de/gitsemver/gitsemver.deb /
+RUN dpkg -i ./gitsemver.deb && rm gitsemver.deb
