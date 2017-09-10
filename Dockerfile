@@ -7,6 +7,5 @@ RUN apt-get update -q && apt-get install -yq --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Install gitsemver
-RUN curl -o /gitsemver.deb https://downloads.haprotec.de/gitsemver/gitsemver.deb && \
-    dpkg -i /gitsemver.deb && \
-    rm /gitsemver.deb
+ADD http://downloads.haprotec.de/gitsemver/gitsemver.deb /
+RUN dpkg -i /gitsemver.deb && rm /gitsemver.deb
